@@ -1,8 +1,8 @@
-import './styles.css'
+import styles from './styles.module.css'
 
 export function ExperienceBar() {   
     return (
-        <header className="experience-bar">
+        <header className='experience-bar'>
             <span>0 xp</span>
             <div>
                 <div style={{ width: '50%'}}/>
