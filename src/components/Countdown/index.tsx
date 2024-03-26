@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../Button';
 import styles from './styles.module.css';
 
+let countdownTimeout: NodeJS.Timeout;
+
 export function Countdown() {
     const [count,setCount] = useState(25 * 60);
-    const [active, setActive] = useState(false);
-    
+    const [isActive, setIsActive] = useState(false);
+    const [hasFinished, setHasFinished] = useState(false);
+
     const minutes = Math.floor(count / 60);
     const seconds = count % 60;
 
@@ -13,8 +16,26 @@ export function Countdown() {
     const [secondLeft, secondRight] = String(seconds).padStart(2,'0').split('');
     
     function startCountDown() {
-
+        setIsActive(true);
     }
+
+    function cancelCountDown() {
+        clearTimeout(countdownTimeout);
+        setCount(25 * 60);
+        setIsActive(false);
+    }
+
+    useEffect(()=> {
+        if (isActive && count > 0) {
+            countdownTimeout = setTimeout(()=> {
+                setCount(count - 1)
+            }, 1000)
+        }
+        else if ( count == 0 ) {
+            setHasFinished(true);
+            setIsActive(false)
+        }
+    }, [isActive,count])
 
     return (
         <div>
@@ -29,9 +50,26 @@ export function Countdown() {
                     <span>{secondRight}</span>
                 </div>
             </div>
-            <Button
-            onClick={startCountDown}
-            >Iniciar um Ciclo</Button>
+
+            {
+                hasFinished ? 
+                (
+                    <Button
+                    hasFinished
+                    >
+                    Ciclo Finalizado
+                    </Button>
+                ) :
+                (
+                    <Button
+                        onClick={isActive ?  cancelCountDown : startCountDown}
+                        active={isActive}
+                    >
+                    { isActive ? 'Abandonar Ciclo ' : 'Iniciar um Ciclo'}
+                    </Button>
+                )
+            }
+
         </div>
     )
 }

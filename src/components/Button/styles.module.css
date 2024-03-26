@@ -1,4 +1,4 @@
-.startCountdownButton {
+.countDown {
     width: 100%;
     height: 5rem;
 
@@ -9,17 +9,38 @@
 
     border: 0;
     border-radius: 6px;
-
-    background-color: var(--blue);
-    color: var(--white);
-
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.countDownUnactive {
+    background-color: var(--blue);
+    color: var(--white);
 
     transition: background-color 0.2s;
 }
 
-.startCountdownButton:hover {
+.countDownActive {
+    background: var(--title);
+    color: var(--white);
+
+    transition: background-color 0.4s;
+}
+
+.countDownUnactive:not(:disabled):hover {
     background: var(--blue-dark);
+}
+
+
+
+.countDownActive:not(:disabled):hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+.hasFinished {
+    background: var(--white);
+    color: var(--text);
+    cursor: not-allowed;
 }
 
