@@ -44,3 +44,10 @@
     cursor: not-allowed;
 }
 
+.challengeFailedButton {
+    background: var(--red);
+}
+
+.challengeSucceededButton {
+    background: var(--green);
+}

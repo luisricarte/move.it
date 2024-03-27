@@ -1,4 +1,6 @@
+import { Button } from '../Button';
 import styles from './styles.module.css';
+import stylesButton from '../Button/styles.module.css';
 export function ChallengeBox() {
     const hasActiveChallenge = true
 
@@ -15,18 +17,18 @@ export function ChallengeBox() {
                             <p>Levante e faça uma caminhada de 3 minutos</p>
                         </main>
                         <footer>
-                            <button 
+                            <Button
                                 type='button'
-                                className={styles.challengeFailedButton}
+                                className={stylesButton.challengeFailedButton}
                             >
                                 Falhei
-                            </button>
-                            <button
+                            </Button>
+                            <Button
                                 type='button'
-                                className={styles.challengeSucceededButton}
+                                className={stylesButton.challengeSucceededButton}
                             >
                                 Completei
-                                </button>
+                                </Button>
                         </footer>
                     </div>
 

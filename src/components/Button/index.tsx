@@ -1,4 +1,3 @@
-import styles from './styles.module.css';
 import { ButtonHTMLAttributes } from 'react';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
