@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../Button';
 import styles from './styles.module.css';
+import stylesButton from '../Button/styles.module.css';
 
 let countdownTimeout: NodeJS.Timeout;
 
@@ -55,7 +56,8 @@ export function Countdown() {
                 hasFinished ? 
                 (
                     <Button
-                    hasFinished
+                        className={`${stylesButton.countDown} ${stylesButton.hasFinished}`}
+                        disabled
                     >
                     Ciclo Finalizado
                     </Button>
@@ -63,7 +65,7 @@ export function Countdown() {
                 (
                     <Button
                         onClick={isActive ?  cancelCountDown : startCountDown}
-                        active={isActive}
+                        className={ `${stylesButton.countDown} ${isActive ? stylesButton.countDownActive : stylesButton.countDownUnactive}`}   
                     >
                     { isActive ? 'Abandonar Ciclo ' : 'Iniciar um Ciclo'}
                     </Button>
