@@ -1,13 +1,13 @@
 import '../styles/global.css'
-import { challegensContext } from '../contexts/ChallengesContext';
-function MyApp({ Component, pageProps}) {
-    
+import { ChallengesProvider } from '../contexts/ChallengesContext';
+
+function MyApp({ Component, pageProps}) {  
+
+
     return(
-        <>
-        <challegensContext.Provider>
+        <ChallengesProvider>
             <Component {...pageProps}/>
-        </challegensContext.Provider>
-        </>
+        </ChallengesProvider>
     ) 
 }
 

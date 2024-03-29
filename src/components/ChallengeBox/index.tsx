@@ -3,7 +3,6 @@ import styles from './styles.module.css';
 import stylesButton from '../Button/styles.module.css';
 export function ChallengeBox() {
     const hasActiveChallenge = true
-
     return (
         <div className={styles.challengeBoxContainer}>
             {
