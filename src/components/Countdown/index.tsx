@@ -7,13 +7,12 @@ import { ChallengesContext } from '@/contexts/ChallengesContext';
 let countdownTimeout: NodeJS.Timeout;
 
 export function Countdown() {
-    
-    const [count,setCount] = useState(25 * 60);
+    const {startNewChallenge} = useContext(ChallengesContext);
+
+    const [count,setCount] = useState(0.1 * 60);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
 
-    const contextData = useContext(ChallengesContext);
-    console.log(contextData);
     const minutes = Math.floor(count / 60);
     const seconds = count % 60;
 
@@ -26,7 +25,7 @@ export function Countdown() {
 
     function cancelCountDown() {
         clearTimeout(countdownTimeout);
-        setCount(25 * 60);
+        setCount(0.1 * 60);
         setIsActive(false);
     }
 
@@ -38,7 +37,8 @@ export function Countdown() {
         }
         else if ( count == 0 ) {
             setHasFinished(true);
-            setIsActive(false)
+            setIsActive(false);
+            startNewChallenge();
         }
     }, [isActive,count])
 
