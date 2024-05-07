@@ -12,7 +12,7 @@ export function Profile() {
                 <strong className={styles.nameTitle}>Luis Eduardo Ricarte</strong>
                 <p>
                     <img src="icons/level.svg" alt="Level" />
-                    Level <span style={{color: 'green', fontSize: '22px'}}>{level}</span></p>
+                    Level <span style={{color: '#4AD129', fontSize: '22px'}}>{level}</span></p>
             </div>
         </div>
     )
