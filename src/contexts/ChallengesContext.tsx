@@ -44,7 +44,7 @@ export function ChallengesProvider({children}: ChallengesProviderProps) {
     }
 
     function resetChallenge () {
-        setActiveChallenge({type:'',description:'', amount:0});
+        setActiveChallenge(null);
     }
 
     const completeChallenge = () => {
