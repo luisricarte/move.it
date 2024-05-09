@@ -1,5 +1,6 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, ReactNode, useEffect } from 'react';
 import challenges from '../../challenges.json';
+import Cookies from 'js-cookie';
 
 interface ChallengeMockProps {
     type: 'body' | 'eye' | string,
@@ -32,6 +33,15 @@ export function ChallengesProvider({children}: ChallengesProviderProps) {
     const [activeChallenge, setActiveChallenge] = useState<ChallengeMockProps | null>(null) 
 
     const experienceToNextLevel = Math.pow((level+1)*4,2);
+
+    
+    useEffect(()=>{
+        Cookies.set('level', String(level));
+        Cookies.set('challengesCompleted', String(challengesCompleted));
+        Cookies.set('currentExperience', String(currentExperience));
+
+    }, [level, challengesCompleted, currentExperience])
+    
 
     function levelUp(){ 
         setLevel(level + 1);
