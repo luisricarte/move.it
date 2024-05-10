@@ -2,7 +2,7 @@ import { ExperienceBar } from "@/components/ExperienceBar";
 import { Profile } from "@/components/Profile";
 import { CompletedChallenges } from "@/components/CompletedChallenges";
 import { Countdown } from "@/components/Countdown";
-
+import {GetServerSideProps} from 'next';
 import Head from "next/head";
 import styles from '../styles/components/Home.module.css';
 import { ChallengeBox } from "@/components/ChallengeBox";
@@ -37,4 +37,11 @@ export default function Home() {
         
         </div>
     )
+}
+
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    return {
+        props: {}
+    }
 }
