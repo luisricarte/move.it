@@ -1,7 +1,9 @@
 import '../styles/global.css'
-import { CountdownProvider } from '@/contexts/CountdownContext';
-
-function MyApp({ Component, pageProps}) {  
+interface Props {
+    Component: any;
+    pageProps: any;
+}
+function MyApp({ Component, pageProps}: Props) {  
     return(            
         <Component {...pageProps}/>
     ) 
